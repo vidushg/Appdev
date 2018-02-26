@@ -9,14 +9,22 @@
 import UIKit
 
 class TableViewController: UITableViewController {
-
-    @IBOutlet weak var doglabel: UILabel!
-    @IBOutlet weak var image: UIImageView!
-    
+    var arr1=[String]()
+    var arr=[UIImage] ()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        arr.append(#imageLiteral(resourceName: "images-2"))
+        arr.append(#imageLiteral(resourceName: "Doge-meme-shot_(1)"))
+        arr.append(#imageLiteral(resourceName: "1790556"))
+        arr.append(#imageLiteral(resourceName: "CksKdX-UgAAsCCv"))
+        arr.append(#imageLiteral(resourceName: "images"))
+        arr1.append("Doge1")
+        arr1.append("Doge2")
+        arr1.append("Doge3")
+        arr1.append("Doge4")
+        arr1.append("Doge5")
+      
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -43,8 +51,13 @@ class TableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "DogCell", for: indexPath)
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "DogCell", for: indexPath) as! DogTableViewCell
+        
+        cell.DogLabel.text=self.arr1[indexPath.row]
+        cell.DogImage.image=self.arr[indexPath.row]
+        //cell.DogLabel.image=self.arr[indexPath.row]
+        //cell.DogLabel.text="Doge"
+        //cell.DogImage.image = #imageLiteral(resourceName: "images")
 
         return cell
     }
